@@ -17,7 +17,9 @@ We're going to be writing a shell script.  First, though... let's figure out wha
 
 What command did you use, and what was its output?
 ----------
+date
 
+Wed Feb 17 11:50:19 EST 2016
 
 
 ==========
@@ -25,6 +27,15 @@ What command did you use, and what was its output?
 
 What command did you use, and what was its output?
 ----------
+cal
+
+February 2016
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29
 
 
 
@@ -33,7 +44,8 @@ What command did you use, and what was its output?
 
 What commands did you use to do this?
 ----------
-
+cd ~
+pwd
 
 
 ==========
@@ -41,6 +53,21 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
+touch copy_to_backup.sh
+
+Applications			__MACOSX
+Desktop				copy_to_backup.sh
+Documents			junk.jpg
+Downloads			juunk.jpg
+Library				mtec1002-lab-02
+Movies				mtec1002-lab-02-secret.tar.gz
+Music				mtec1002-lab-02-secrets.tar.gz
+My Song.band			mtec1003-lab-03
+Pictures			mtec1003-lab-03.tar.gz
+Public				mystuff
+Sites				stuff
+Things				vms
+VirtualBox VMs
 
 
 
@@ -49,6 +76,9 @@ What commands did you use to do this?
 
 What command did you use to find the permissions?
 ----------
+ent-v314-002:~ student$ ls -l copy_to_backup.sh.
+
+-rw-r--r--  1 student  staff  0 Feb 17 11:52 copy_to_backup.sh
 
 
 
@@ -57,7 +87,10 @@ What command did you use to find the permissions?
 
 What commands did you use to do this?  What was the output?
 ----------
+chmod u+x copy_to_backup.sh
+ls -l copy_to_backup.sh
 
+-rwxr--r--  1 student  staff  0 Feb 17 11:52 copy_to_backup.sh
 
 
 ==========
@@ -67,8 +100,9 @@ $ ./copy_to_backup.sh
 
 What command did you use to try to execute the file?  What happens?
 ----------
+ent-v314-002:~ student$ ./copy_to_backup.sh
 
-
+Nothing
 
 ==========
 8. Open the file with nano
@@ -76,29 +110,40 @@ What command did you use to try to execute the file?  What happens?
 What command did you use to do this?
 ----------
 
-
-
+nano copy_to_backup.sh
 ==========
-9. In your file, write the following commands:
+9. In your file, write the commands to do the following
 
-a. create a directory called backup in your home directory... use the -p flag!
-b. copy all of the files txt files in the current directory to the backup directory (use *.txt)
+a. create a directory called backup 
+b. copy all of the txt files in the current directory to the backup directory (use *.txt)
 c. print out "I'm done backing up"
+
+Don't forget the first line of your shell script! It should begin with #!/bin/bash)!
 
 Write out the code in your file below...
 ----------
+#!/bin/bash
+
+mkdir backup
+cp *.txt backup
+#Prints "I'm done backing up"
+
 
 
 
 ==========
 10. Create a directory in your home called test
 ----------
+mkdir test
+
+
 ==========
 11. Go into that directory and create two empty files... 1.txt and 2.txt
 
 What commands did you use to do this?
 ----------
-
+touch 1.txt
+touch 2.txt
 
 
 ==========
@@ -106,7 +151,7 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+mv copy_to_backup.sh test
 
 
 ==========
@@ -114,11 +159,19 @@ What commands did you use to do this?
 
 What commands did you use to do this?
 ----------
-
+It created backup and copied all .txt files
 
 
 ==========
-14. Verify that a backup folder was created in your home directory... with copies of the files present.
+14. Verify that a backup folder was created in your test directory... with copies of the files present.
 
 What commands did you use to do this?  Show the output.
 ----------
+ls
+cd backup
+ls
+
+1.txt			backup
+2.txt			copy_to_backup.sh
+
+1.txt	2.txt
