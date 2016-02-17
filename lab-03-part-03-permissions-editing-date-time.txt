@@ -126,7 +126,7 @@ Write out the code in your file below...
 
 mkdir backup
 cp *.txt backup
-#Prints "I'm done backing up"
+echo "I'm done backing up"
 
 
 
